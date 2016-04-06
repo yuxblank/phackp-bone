@@ -1,0 +1,26 @@
+{
+  "name": "yuxblank/phackp-bone",
+  "description": "App skeleton for phackp framework applications",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Yuri Blanc",
+      "email": "yuxblank@gmail.com"
+    }
+  ],
+  "require": {
+    "yuxblank/phackp": "@dev"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/yuxblank/phackp"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Controller\\": "/controller",
+      "Model\\" : "/model"
+    }
+  }
+}
