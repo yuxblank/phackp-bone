@@ -1,5 +1,9 @@
 <?php
-class App extends yuxblank\phackp\core\controller
+namespace controller;
+use model\Welcome;
+use yuxblank\phackp\core\Controller;
+
+class App extends Controller
 {
     /**
      * App constructor. Here you can run the code you many need in any method execution.
@@ -14,7 +18,7 @@ class App extends yuxblank\phackp\core\controller
      * The action App@Index configured in the routes.json will point to this method after calling class constructor.
      * URL: /
      */
-    public function index () {
+    public function index() {
 
         $Welcome = new Welcome();
         $View = View();

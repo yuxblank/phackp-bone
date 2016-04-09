@@ -1,10 +1,13 @@
 <?php
+namespace model;
+use yuxblank\phackp\core\Database;
+use yuxblank\phackp\core\Model;
 
 /**
  * This is table "welcome"
  * The model name should be equal to the table name, case insensitive
  */
-class Welcome extends yuxblank\phackp\core\database
+class Welcome extends Model
 {
     /**
      * This is column "message"
