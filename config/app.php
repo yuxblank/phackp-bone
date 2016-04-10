@@ -23,7 +23,7 @@ return [
      * App filesystem settings
      */
 
-    "APP_ROOT" => "..".__DIR__,
+   /* "APP_ROOT" => __DIR__ ,*/
 
 
     /**
@@ -33,12 +33,28 @@ return [
     "APP_MODE" => "DEBUG",
 
 
+    'APP_URL' => 'localhost:9000',
+
+
     /**
      * Performance settings
      */
 
     /*    "CACHE" => false, // not implemented yet*/
     "GZIP" => false,
+
+
+    'USE_DATABASE' => false,
+
+
+    // change default project-level namepsaces
+    'NAMESPACE' =>
+
+        [
+            'CONTROLLER' => 'controller\\',
+            'MODEL'      => 'model\\',
+
+        ]
 
 
 

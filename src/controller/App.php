@@ -2,6 +2,7 @@
 namespace controller;
 use model\Welcome;
 use yuxblank\phackp\core\Controller;
+use yuxblank\phackp\core\View;
 
 class App extends Controller
 {
@@ -21,9 +22,9 @@ class App extends Controller
     public function index() {
 
         $Welcome = new Welcome();
-        $View = View();
+        $View = new View();
 
-        $View->renderArgs("welcome", $Welcome->getHelloWorld());
-        $View->render();
+        $View->renderArgs("message", $Welcome->getHelloWorld());
+        $View->render('app/index');
     }
 }

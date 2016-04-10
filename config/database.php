@@ -8,12 +8,12 @@ return [
     "DATABASE" =>
     [
         "ID"      => "default",
-        "DRIVER"  => "MYSQL",
+        "DRIVER"  => "mysql",
         "HOST"    => "localhost",
         "PORT"    => "",
         "USER"    => "root",
         "PSW"     => "",
-        "NAME"    => "",
+        "NAME"    => "phackpbone",
         "OPTIONS" => [],
     ]
 
