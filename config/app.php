@@ -33,7 +33,7 @@ return [
     "APP_MODE" => "DEBUG",
 
 
-    'APP_URL' => 'localhost:9000',
+    'APP_URL' => 'http://localhost:9000',
 
 
     /**

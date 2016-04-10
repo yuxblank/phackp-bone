@@ -1,3 +1,3 @@
 <div class="welcomebox">
-    <p><?php echo $message ?></p>
+    <h1><?php echo $message ?></h1>
 </div>
