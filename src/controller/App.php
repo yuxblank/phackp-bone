@@ -27,4 +27,8 @@ class App extends Controller
         $View->renderArgs("message", $Welcome->getHelloWorld());
         $View->render('app/index');
     }
+
+    public function showPost($params){
+        echo $params['GET']['id'];
+    }
 }

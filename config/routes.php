@@ -12,7 +12,7 @@ return [
                 'action' => 'App@index',
                 'method' => 'GET'
             ],
-        '/blog/{id}' =>
+        'blog/{id}' =>
             [
                 'action' => 'App@showPost',
                 'method' => 'GET',
