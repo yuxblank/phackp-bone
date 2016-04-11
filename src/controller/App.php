@@ -1,6 +1,8 @@
 <?php
 namespace controller;
+use model\Post;
 use model\Welcome;
+use yuxblank\phackp\core\Application;
 use yuxblank\phackp\core\Controller;
 use yuxblank\phackp\core\View;
 
@@ -29,6 +31,15 @@ class App extends Controller
     }
 
     public function showPost($params){
-        echo $params['GET']['id'];
+        $view = new View();
+        $id = $params['GET']['id'];
+        $post = new Post();
+        if (Application::getConfig()['USE_DATABASE']) {
+            $view->renderArgs('post', $post->findById($id));
+        } else {
+            $view->renderArgs('post', $post->setExampleNoDbPost());
+        }
+        $view->render('app/post');
+
     }
 }

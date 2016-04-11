@@ -1,7 +1,14 @@
 body {
 
 }
-
+.main-container {
+    width: 960px;
+    margin: 0 auto;
+}
+header {
+    margin-top: 20px;
+    text-align: center;
+}
 h1{
     color: #cc3720;
 }
