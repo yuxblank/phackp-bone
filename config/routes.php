@@ -32,6 +32,11 @@ return [
                         'accept' => 'application/json',
                         'return' => 'application/json'
                     ]
+            ],
+        '404' =>
+            [
+                'action' => 'Error@notFound404',
+                'method' => 'GET',
             ]
 
 

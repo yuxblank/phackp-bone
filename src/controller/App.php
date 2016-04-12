@@ -38,7 +38,7 @@ class App extends Controller
         if (Application::getConfig()['USE_DATABASE']) {
             $post =  $post->findById($id);
             if (!$post) {
-                Router::_redirect('/');
+                Router::notFound();
             }
             $view->renderArgs('post', $post->findById($id));
         } else {
