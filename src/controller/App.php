@@ -4,6 +4,7 @@ use model\Post;
 use model\Welcome;
 use yuxblank\phackp\core\Application;
 use yuxblank\phackp\core\Controller;
+use yuxblank\phackp\core\Router;
 use yuxblank\phackp\core\View;
 
 class App extends Controller
@@ -35,6 +36,10 @@ class App extends Controller
         $id = $params['GET']['id'];
         $post = new Post();
         if (Application::getConfig()['USE_DATABASE']) {
+            $post =  $post->findById($id);
+            if (!$post) {
+                Router::_redirect('/');
+            }
             $view->renderArgs('post', $post->findById($id));
         } else {
             $view->renderArgs('post', $post->setExampleNoDbPost());

@@ -12,6 +12,17 @@ return [
                 'action' => 'App@index',
                 'method' => 'GET'
             ],
+        'blog/title/{id}' =>
+            [
+                'action' => 'App@showPost',
+                'method' => 'GET',
+                'options' =>
+                    [
+                        'accept' => 'application/json',
+                        'return' => 'application/json'
+                    ]
+
+            ],
         'blog/{id}' =>
             [
                 'action' => 'App@showPost',
