@@ -9,14 +9,16 @@
 namespace controller;
 
 
+use yuxblank\phackp\core\Controller;
 use yuxblank\phackp\core\View;
 
-class Error
+class Error extends Controller
 {
 
     public function notFound404() {
-        $view = new View();
-        $view->render();
+        /*$view = new View();
+        $view->render();*/
+        echo "<p> 404 not found </p>";
     }
 
 }

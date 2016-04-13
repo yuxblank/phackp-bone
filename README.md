@@ -1,2 +1,2 @@
 # phackp-bone
-Application skeleton for phackp framework
+Application skeleton for pHackp framework.

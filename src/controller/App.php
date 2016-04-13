@@ -39,8 +39,9 @@ class App extends Controller
             $post =  $post->findById($id);
             if (!$post) {
                 Router::notFound();
+            } else {
+                $view->renderArgs('post', $post->findById($id));
             }
-            $view->renderArgs('post', $post->findById($id));
         } else {
             $view->renderArgs('post', $post->setExampleNoDbPost());
         }
