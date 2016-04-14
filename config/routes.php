@@ -25,11 +25,6 @@ return [
             [
                 'url' => 'blog/{id}',
                 'action' => 'App@showPost',
-                'options' =>
-                    [
-                        'accept' => 'application/json',
-                        'return' => 'application/json'
-                    ]
             ],
             [
                 'url' => 'api',

@@ -33,8 +33,14 @@ return [
     "APP_MODE" => "DEBUG",
 
 
-    'APP_URL' => 'http://localhost:9000',
+    'APP_URL' => 'http://localhost:7000',
 
+
+    /**
+     * Rest settings
+     */
+
+    'INJECT_QUERY_STRING' => true,
 
     /**
      * Performance settings
