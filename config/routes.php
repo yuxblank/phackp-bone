@@ -26,6 +26,12 @@ return [
                 'url' => 'blog/{id}',
                 'action' => 'App@showPost',
             ],
+
+            [
+                'url' => 'tag/{id}',
+                'action' => 'App@tagSearch'
+            ],
+
             [
                 'url' => 'api',
                 'action' => 'Rest@get'

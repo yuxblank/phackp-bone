@@ -28,4 +28,10 @@ class Post extends Model
         return $this;
     }
 
+
+    public function tags() {
+        return $this->manyToMany($this,'Tag');
+    }
+
+
 }
