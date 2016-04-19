@@ -1,9 +1,11 @@
 <?php
 namespace controller;
 use model\Post;
+use model\Tag;
 use model\Welcome;
 use yuxblank\phackp\core\Application;
 use yuxblank\phackp\core\Controller;
+use yuxblank\phackp\core\QueryBuilder;
 use yuxblank\phackp\core\Router;
 use yuxblank\phackp\core\View;
 
@@ -23,6 +25,15 @@ class App extends Controller
      * URL: /
      */
     public function index() {
+        $query = new QueryBuilder();
+        $tag = new Tag();
+        $post = new Post();
+
+        $post->countObjects();
+        $post->findById(1);
+
+        $post->findAll();
+
 
         $Welcome = new Welcome();
         $View = new View();
@@ -48,4 +59,13 @@ class App extends Controller
         $view->render('app/post');
 
     }
+
+    public function searchTag($prams) {
+
+
+
+
+
+    }
+
 }

@@ -30,7 +30,7 @@ class Post extends Model
 
 
     public function tags() {
-        return $this->manyToMany($this,'Tag');
+        return $this->manyToMany($this,'Tag','post_id', 'id');
     }
 
 
