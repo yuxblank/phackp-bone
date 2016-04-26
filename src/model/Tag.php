@@ -15,5 +15,11 @@ class Tag extends Model
 {
     public $id;
     public $tag;
+    public $post_id;
+
+
+    public function posts() {
+        return $this->oneToMany($this, 'model\\Post');
+    }
 
 }

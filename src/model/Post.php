@@ -20,6 +20,8 @@ class Post extends Model
 
 
 
+
+
     public function setExampleNoDbPost(){
         $this->id = 1;
         $this->title = 'No db title post';
@@ -30,7 +32,12 @@ class Post extends Model
 
 
     public function tags() {
-        return $this->manyToMany($this,'Tag','post_id', 'id');
+        return $this->manyToMany($this,'model\\Tag');
+    }
+
+
+    public function tag() {
+        return $this->oneToOne($this,'model\\Tag');
     }
 
 

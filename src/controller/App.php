@@ -25,15 +25,6 @@ class App extends Controller
      * URL: /
      */
     public function index() {
-        $query = new QueryBuilder();
-        $tag = new Tag();
-        $post = new Post();
-
-        $post->countObjects();
-        $post->findById(1);
-
-        $post->findAll();
-
 
         $Welcome = new Welcome();
         $View = new View();
