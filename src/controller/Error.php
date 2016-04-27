@@ -9,15 +9,25 @@
 namespace controller;
 
 
+use yuxblank\phackp\api\EventDrivenController;
 use yuxblank\phackp\core\Controller;
 use yuxblank\phackp\core\View;
 
-class Error extends Controller
+class Error extends Controller implements EventDrivenController
 {
+    public function onBefore()
+    {
+        // TODO: Implement onBefore() method.
+    }
+
+    public function onAfter()
+    {
+
+    }
+
 
     public function notFound404() {
-        /*$view = new View();
-        $view->render();*/
+        http_response_code(404);
         echo "<p> 404 not found </p>";
     }
 

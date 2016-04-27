@@ -3,13 +3,14 @@ namespace controller;
 use model\Post;
 use model\Tag;
 use model\Welcome;
+use yuxblank\phackp\api\EventDrivenController;
 use yuxblank\phackp\core\Application;
 use yuxblank\phackp\core\Controller;
 use yuxblank\phackp\core\QueryBuilder;
 use yuxblank\phackp\core\Router;
 use yuxblank\phackp\core\View;
 
-class App extends Controller
+class App extends Controller implements EventDrivenController
 {
     /**
      * App constructor. Here you can run the code you many need in any method execution.
@@ -21,7 +22,23 @@ class App extends Controller
     }
 
     /**
-     * The action App@Index configured in the routes.json will point to this method after calling class constructor.
+     * This is an example of onBefore() call. If defined, this method will run before other methods and right after constructor.
+*/
+    public function onBefore() {
+
+    }
+
+    /**
+     * This is an example of onAfter() call. If defined, this method will run at last
+     */
+
+    public function onAfter() {
+
+    }
+
+
+    /**
+     * The action App@Index configured in the  will point to this method after calling class constructor.
      * URL: /
      */
     public function index() {
@@ -35,7 +52,9 @@ class App extends Controller
 
     public function showPost($params){
         $view = new View();
-        $id = $params['GET']['id'];
+        $id = filter_var($params['GET']['id'],FILTER_SANITIZE_NUMBER_INT);
+
+
         $post = new Post();
         if (Application::getConfig()['USE_DATABASE']) {
             $post =  $post->findById($id);
@@ -51,10 +70,7 @@ class App extends Controller
 
     }
 
-    public function searchTag($prams) {
-
-
-
+    public function searchTag($params) {
 
 
     }

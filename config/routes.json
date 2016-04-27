@@ -1,4 +1,0 @@
-{"routes":[
-  {"action":"App@index", "method":"GET", "url" : "/"},
-  {"action" : "Errors@page404", "method" : "GET", "url" : "404"}
-]}

@@ -12,12 +12,13 @@ use yuxblank\phackp\core\view;
 <body>
 
 <div class="main-container">
-    <?php $this->content(array('message'=>$message))?>
+    <?php $this->content()?>
 
 
 
     <?php
-    $this->hook('FOOTER', array('message' => $message));
+    //$this->hook('FOOTER', array('message' => $message));
+    $this->hook('FOOTER', array('message' => 'pHackp-bone app version: '.\yuxblank\phackp\core\Application::getConfig()['APP_VERSION']));
     ?>
 </div>
 
