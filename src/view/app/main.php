@@ -1,3 +1,6 @@
+<?php
+use yuxblank\phackp\core\view;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +10,17 @@
           href="<?php echo \yuxblank\phackp\core\Application::getAppUrl() . '/resource/css/application.css'; ?>"></link>
 </head>
 <body>
+
 <div class="main-container">
-    <?php include($page_content) ?>
+    <?php $this->content(array('message'=>$message))?>
+
+
+
+    <?php
+    $this->hook('FOOTER', array('message' => $message));
+    ?>
 </div>
+
 </body>
 </html>
 

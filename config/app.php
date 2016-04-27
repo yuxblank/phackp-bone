@@ -60,6 +60,16 @@ return [
             'CONTROLLER' => 'controller\\',
             'MODEL'      => 'model\\',
 
+        ],
+
+    'VIEW' =>
+        [
+            'ROOT' => 'src/view',
+            'HOOKS' =>
+                [
+                    'FOOTER'       => 'tags/footer.php'
+                ]
+
         ]
 
 
