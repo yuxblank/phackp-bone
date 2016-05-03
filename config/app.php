@@ -15,15 +15,15 @@ return [
      */
     "AUTHOR" =>
         [
-            "NAME"=> "Name",
-            "EMAIL"=> "email@devexample.com"
+            "NAME" => "Name",
+            "EMAIL" => "email@devexample.com"
         ],
 
     /**
      * App filesystem settings
      */
 
-   /* "APP_ROOT" => __DIR__ ,*/
+    /* "APP_ROOT" => __DIR__ ,*/
 
 
     /**
@@ -43,6 +43,25 @@ return [
     'INJECT_QUERY_STRING' => true,
 
     /**
+     * Cookies and Sessions
+     */
+
+    'SESSION' =>
+        [
+            'LIFETIME' => 1024,
+            'USE_COOKIES' => true,
+            'NAME' => 'pHackp-session',
+            'COOKIE' =>
+                [
+                    'PATH' => '/',
+                    'DOMAIN' => '',
+                    'SECURE' => isset($_SERVER['HTTPS']),
+                    'HTTP_ONLY' => false
+                ]
+        ],
+
+
+    /**
      * Performance settings
      */
 
@@ -50,7 +69,7 @@ return [
     "GZIP" => false,
 
 
-    'USE_DATABASE' => false,
+    'USE_DATABASE' => true,
 
 
     // change default project-level namepsaces
@@ -58,7 +77,7 @@ return [
 
         [
             'CONTROLLER' => 'controller\\',
-            'MODEL'      => 'model\\',
+            'MODEL' => 'model\\',
 
         ],
 
@@ -67,44 +86,10 @@ return [
             'ROOT' => 'src/view',
             'HOOKS' =>
                 [
-                    'FOOTER'       => 'tags/footer.php'
+                    'FOOTER' => 'tags/footer.php'
                 ]
 
         ]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ];

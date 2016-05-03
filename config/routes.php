@@ -10,11 +10,13 @@ return [
         'GET' => [
             [
                 'url' => '/',
-                'action' => 'App@index'
+                'action' => 'App@index',
+                'alias' => 'home'
             ],
             [
                 'url' => 'blog/title/{id}',
                 'action' => 'App@showPost',
+                'alias' => 'blogpost',
                 'options' =>
                     [
                         'accept' => 'application/json',
