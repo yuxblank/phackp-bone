@@ -10,12 +10,14 @@ return [
         'GET' => [
             [
                 'url' => '/',
-                'action' => 'App@index',
+                'method' => 'index',
+                'class' => \controller\App::class,
                 'alias' => 'home'
             ],
             [
                 'url' => 'blog/title/{id}',
-                'action' => 'App@showPost',
+                'method' => 'showPost',
+                'class' => \controller\App::class,
                 'alias' => 'blogpost',
                 'options' =>
                     [
@@ -26,24 +28,28 @@ return [
             ],
             [
                 'url' => 'blog/{id}',
-                'action' => 'App@showPost',
+                'method' => 'showPost',
+                'class' => \controller\App::class,
             ],
 
             [
                 'url' => 'tag/{id}',
-                'action' => 'App@tagSearch'
+                'method' => 'tagSearch',
+                'class' => \controller\App::class,
             ],
 
             [
                 'url' => 'api',
-                'action' => 'Rest@get'
+                'method' => 'get',
+                'class' => \controller\Rest::class,
             ],
 
         ],
         'POST' => [
             [
                 'url' => 'api',
-                'action' => 'Rest@post',
+                'method' => 'post',
+                'class' => \controller\Rest::class,
                 'options' =>
                     [
                         'accept' => 'application/json',
@@ -54,31 +60,36 @@ return [
         'PUT' => [
             [
                 'url' => 'api',
-                'action' => 'Rest@put'
+                'class' => \controller\Rest::class,
+                'method' => 'put'
             ],
         ],
         'PATCH' => [
             [
                 'url' => 'api',
-                'action' => 'Rest@patch'
+                'class' => \controller\Rest::class,
+                'method' => 'patch'
             ]
         ],
         'DELETE' => [
             [
                 'url' => 'api',
-                'action' => 'Rest@delete'
+                'class' => \controller\Rest::class,
+                'method' => 'delete'
             ]
         ],
         'HEAD' => [
             [
                 'url' => 'api',
-                'action' => 'Rest@head'
+                'class' => \controller\Rest::class,
+                'method' => 'head'
             ]
         ],
         'OPTIONS' => [
             [
                 'url' => 'api',
-                'action' => 'Rest@options'
+                'class' => \controller\Rest::class,
+                'method' => 'options'
             ]
         ],
 
@@ -90,7 +101,8 @@ return [
             404 =>
                 [
                     'url' => '404',
-                    'action' => 'Error@notFound404'
+                    'method' => 'notFound404',
+                    'class' => \controller\Error::class
                 ],
         ]
     ]

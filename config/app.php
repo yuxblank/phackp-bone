@@ -7,7 +7,7 @@ return [
      */
 
     "APP_NAME" => "phackp-bone",
-    "APP_VERSION" => "0.1",
+    "APP_VERSION" => "0.1.6-snapshot",
 
 
     /**
@@ -54,8 +54,8 @@ return [
             'COOKIE' =>
                 [
                     'PATH' => '/',
-                    'DOMAIN' => '',
-                    'SECURE' => isset($_SERVER['HTTPS']),
+                    'DOMAIN' => $_SERVER['HTTP_HOST'],
+                    'SECURE' => array_key_exists('HTTPS',$_SERVER),
                     'HTTP_ONLY' => false
                 ]
         ],
@@ -76,7 +76,6 @@ return [
     'NAMESPACE' =>
 
         [
-            'CONTROLLER' => 'controller\\',
             'MODEL' => 'model\\',
 
         ],

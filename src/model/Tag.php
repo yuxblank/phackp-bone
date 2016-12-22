@@ -9,7 +9,7 @@
 namespace model;
 
 
-use yuxblank\phackp\core\Model;
+use yuxblank\phackp\database\Model;
 
 class Tag extends Model
 {
@@ -19,7 +19,7 @@ class Tag extends Model
 
 
     public function posts() {
-        return $this->oneToMany($this, 'model\\Post');
+        return $this->oneToMany($this, Post::class);
     }
 
 }

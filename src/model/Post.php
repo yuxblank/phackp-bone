@@ -9,7 +9,8 @@
 namespace model;
 
 
-use yuxblank\phackp\core\Model;
+
+use yuxblank\phackp\database\Model;
 
 class Post extends Model
 {
@@ -32,12 +33,12 @@ class Post extends Model
 
 
     public function tags() {
-        return $this->manyToMany($this,'model\\Tag');
+        return $this->manyToMany($this,Tag::class);
     }
 
 
     public function tag() {
-        return $this->oneToOne($this,'model\\Tag');
+        return $this->oneToOne($this,Tag::class);
     }
 
 
