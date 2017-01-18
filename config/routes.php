@@ -18,17 +18,12 @@ return [
                 'url' => 'blog/title/{id}',
                 'method' => 'showPost',
                 'class' => \controller\App::class,
-                'alias' => 'blogpost',
-                'options' =>
-                    [
-                        'accept' => 'application/json',
-                        'return' => 'application/json'
-                    ]
+                'alias' => 'blogpost'
 
             ],
             [
-                'url' => 'blog/{id}',
-                'method' => 'showPost',
+                'url' => 'blog',
+                'method' => 'posts',
                 'class' => \controller\App::class,
             ],
 

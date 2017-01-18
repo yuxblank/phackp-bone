@@ -100,7 +100,7 @@ class App extends Controller implements EventDrivenController
         if (Application::getConfig()['USE_DATABASE']) {
             $post = $post->findById($id);
             if (!$post) {
-                Router::notFound();
+                $view->renderArgs('post', null);
             } else {
                 $view->renderArgs('post', $post->findById($id));
             }
@@ -115,6 +115,13 @@ class App extends Controller implements EventDrivenController
     {
 
 
+    }
+
+    public function posts(){
+        $view = new View();
+        $post = new Post();
+        $view->renderArgs('posts',$post->findAll());
+        $view->render('app/posts');
     }
 
 }

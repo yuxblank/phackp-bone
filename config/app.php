@@ -85,7 +85,8 @@ return [
             'ROOT' => 'src/view',
             'HOOKS' =>
                 [
-                    'FOOTER' => 'tags/footer.php'
+                    'FOOTER' => 'tags/footer.php',
+                    'NAVBAR' => 'tags/navbar.php'
                 ]
 
         ]
