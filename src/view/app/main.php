@@ -8,7 +8,7 @@ use \yuxblank\phackp\core\Application;
     <title>pHackp-bone</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css"
-          href="<?php echo Application::getAppUrl() .'/resource/css/application.css'; ?>"> </link>
+          href="<?php echo $APP_URL.'/resource/css/application.css'; ?>"> </link>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -26,7 +26,7 @@ use \yuxblank\phackp\core\Application;
 
     <?php
     //$this->hook('FOOTER', array('message' => $message));
-    $this->hook('FOOTER', array('message' => 'pHackp-bone app version: '.\yuxblank\phackp\core\Application::getConfig()['APP_VERSION']));
+    $this->hook('FOOTER', array('message' => 'pHackp-bone app version: '. $APP_VERSION));
     ?>
 </div>
 

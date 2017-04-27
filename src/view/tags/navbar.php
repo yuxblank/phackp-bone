@@ -14,8 +14,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="<?php echo yuxblank\phackp\core\Router::alias('blogpost', null, array(1)) ?>">Post</a></li>
-                <li><a href="<?php echo yuxblank\phackp\core\Router::link('blog') ?>">Blog</a></li>
+                <li><a href="<?php echo $this->router->alias('blogpost', null, array(1)) ?>">Post</a></li>
+                <li><a href="<?php echo $this->router->link('blog') ?>">Blog</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

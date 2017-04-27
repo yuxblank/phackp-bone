@@ -1,4 +1,5 @@
 <?php
+
 namespace controller;
 
 use model\Customer;
@@ -48,25 +49,9 @@ class App extends Controller implements EventDrivenController
     public function index($data)
     {
 
-        $tag = Tag::make();
-
-
-        $customer = Customer::make();
-
-
-        $customer->findById(1);
-
         $this->session->init();
-        $this->session->setValue('prova', "pippo");
-        $this->session->setValue('test', $obj);
-
-
+        $this->session->setValue('tag', Tag::make()->findById(1));
         $Welcome = Welcome::make();
-
-
-
-        $this->session->setValue('prova',1);
-
         $this->view->renderArgs("message", $Welcome->getHelloWorld());
         $this->view->render('app/index');
     }
@@ -81,38 +66,29 @@ class App extends Controller implements EventDrivenController
     {
 
 
-
-        Session::_getValue('prova');
         /**
          * @var Tag $obj
          */
-        $obj = Session::_getValue('test');
+        $obj = $this->session->getValue('tag');
 
         /**
          * @var array $posts
          */
         $posts = $obj->posts();
-        $view = new View();
+
         $id = filter_var($params['id'], FILTER_SANITIZE_NUMBER_INT);
 
 
-
-
-
-        Session::_getValue('prova');
+        $this->session->getValue('prova');
 
         $post = Post::make();
-        if (Application::getConfig()['USE_DATABASE']) {
-            $post = $post->findById($id);
-            if (!$post) {
-                $view->renderArgs('post', null);
-            } else {
-                $view->renderArgs('post', $post->findById($id));
-            }
+        $post = $post->findById($id);
+        if (!$post) {
+            $this->view->renderArgs('post', null);
         } else {
-            $view->renderArgs('post', $post->setExampleNoDbPost());
+            $this->view->renderArgs('post', $post->findById($id));
         }
-        $view->render('app/post');
+        $this->view->render('app/post');
 
     }
 
@@ -122,10 +98,11 @@ class App extends Controller implements EventDrivenController
 
     }
 
-    public function posts(){
+    public function posts()
+    {
         $view = new View();
         $post = Post::make();
-        $view->renderArgs('posts',$post->findAll());
+        $view->renderArgs('posts', $post->findAll());
         $view->render('app/posts');
     }
 

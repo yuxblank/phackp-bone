@@ -45,19 +45,18 @@ return [
 
     "app.session" => [
 
-        'SESSION' =>
+
+        'LIFETIME' => 1024,
+        'USE_COOKIES' => true,
+        'NAME' => 'pHackp-session',
+        'COOKIE' =>
             [
-                'LIFETIME' => 1024,
-                'USE_COOKIES' => true,
-                'NAME' => 'pHackp-session',
-                'COOKIE' =>
-                    [
-                        'PATH' => '/',
-                        'DOMAIN' => $_SERVER['HTTP_HOST'],
-                        'SECURE' => array_key_exists('HTTPS', $_SERVER),
-                        'HTTP_ONLY' => false
-                    ]
-            ],
+                'PATH' => '/',
+                'DOMAIN' => $_SERVER['HTTP_HOST'],
+                'SECURE' => array_key_exists('HTTPS', $_SERVER),
+                'HTTP_ONLY' => false
+            ]
+
     ],
 
     'app.view' =>
