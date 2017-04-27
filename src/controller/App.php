@@ -16,7 +16,7 @@ use Zend\Diactoros\Response\Serializer;
 
 class App extends Controller implements EventDrivenController
 {
-    public function __construct(ServerRequestInterface $request, Router $router, Tag $tag)
+    public function __construct(ServerRequestInterface $request, Router $router)
     {
         parent::__construct($request, $router);
 
@@ -48,7 +48,7 @@ class App extends Controller implements EventDrivenController
     public function index($data)
     {
 
-        $tag = Tag::make()->findById(1);
+        $tag = Tag::make();
 
 
         $customer = Customer::make();
@@ -56,21 +56,19 @@ class App extends Controller implements EventDrivenController
 
         $customer->findById(1);
 
+        $this->session->init();
+        $this->session->setValue('prova', "pippo");
+        $this->session->setValue('test', $obj);
 
-        $session = new Session(1000);
-        $session->setValue('prova', "pippo");
-        $session->setValue('test', $obj);
+
+        $Welcome = Welcome::make();
 
 
-        $Welcome = new Welcome();
-        $View = new View();
 
-        $session = new Session();
+        $this->session->setValue('prova',1);
 
-        $session->setValue('prova',1);
-
-        $View->renderArgs("message", $Welcome->getHelloWorld());
-        $View->render('app/index');
+        $this->view->renderArgs("message", $Welcome->getHelloWorld());
+        $this->view->render('app/index');
     }
 
     /**
@@ -103,7 +101,7 @@ class App extends Controller implements EventDrivenController
 
         Session::_getValue('prova');
 
-        $post = new Post();
+        $post = Post::make();
         if (Application::getConfig()['USE_DATABASE']) {
             $post = $post->findById($id);
             if (!$post) {
@@ -126,7 +124,7 @@ class App extends Controller implements EventDrivenController
 
     public function posts(){
         $view = new View();
-        $post = new Post();
+        $post = Post::make();
         $view->renderArgs('posts',$post->findAll());
         $view->render('app/posts');
     }

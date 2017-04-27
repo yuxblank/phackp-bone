@@ -21,8 +21,6 @@ class Post extends Model
 
 
 
-
-
     public function setExampleNoDbPost(){
         $this->id = 1;
         $this->title = 'No db title post';
