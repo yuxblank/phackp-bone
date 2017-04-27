@@ -3,14 +3,21 @@
   "description": "App skeleton for phackp framework applications",
   "license": "MIT",
   "version" : "0.2-alpha",
+  "minimum-stability": "dev",
   "authors": [
     {
       "name": "Yuri Blanc",
       "email": "yuxblank@gmail.com"
     }
   ],
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/yuxblank/phackp.git"
+    }
+  ],
   "require": {
-    "yuxblank/phackp": "@dev"
+    "yuxblank/phackp": "dev-topsrstd"
   },
   "autoload": {
     "psr-4": {

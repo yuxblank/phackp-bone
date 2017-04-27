@@ -5,23 +5,23 @@ use model\Customer;
 use model\Post;
 use model\Tag;
 use model\Welcome;
+use Psr\Http\Message\ServerRequestInterface;
 use yuxblank\phackp\api\EventDrivenController;
 use yuxblank\phackp\core\Application;
 use yuxblank\phackp\core\Controller;
 use yuxblank\phackp\core\Router;
 use yuxblank\phackp\core\Session;
 use yuxblank\phackp\core\View;
+use Zend\Diactoros\Response\Serializer;
 
 class App extends Controller implements EventDrivenController
 {
-    /**
-     * App constructor. Here you can run the code you many need in any method execution.
-     * For example, if the page has a restricted access or you have to build a dynamic menu.
-     */
-    public function __construct()
+    public function __construct(ServerRequestInterface $request, Router $router, Tag $tag)
     {
+        parent::__construct($request, $router);
 
     }
+
 
     /**
      * This is an example of onBefore() call. If defined, this method will run before other methods and right after constructor.
@@ -45,14 +45,14 @@ class App extends Controller implements EventDrivenController
      * The action App@Index configured in the  will point to this method after calling class constructor.
      * URL: /
      */
-    public function index()
+    public function index($data)
     {
 
-        $obj = new Tag();
-        $obj->id = 2;
-        $obj->tag = 'sessiontag';
+        $tag = Tag::make()->findById(1);
 
-        $customer = new Customer();
+
+        $customer = Customer::make();
+
 
         $customer->findById(1);
 
@@ -64,6 +64,10 @@ class App extends Controller implements EventDrivenController
 
         $Welcome = new Welcome();
         $View = new View();
+
+        $session = new Session();
+
+        $session->setValue('prova',1);
 
         $View->renderArgs("message", $Welcome->getHelloWorld());
         $View->render('app/index');
@@ -77,6 +81,7 @@ class App extends Controller implements EventDrivenController
 
     public function showPost($params)
     {
+
 
 
         Session::_getValue('prova');
@@ -95,6 +100,8 @@ class App extends Controller implements EventDrivenController
 
 
 
+
+        Session::_getValue('prova');
 
         $post = new Post();
         if (Application::getConfig()['USE_DATABASE']) {

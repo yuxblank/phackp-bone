@@ -19,7 +19,7 @@ class Tag extends Model
 
 
     public function posts() {
-        return $this->oneToMany($this, Post::class);
+        return $this->belongsTo( Post::class);
     }
 
 }

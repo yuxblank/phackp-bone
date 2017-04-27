@@ -33,12 +33,12 @@ class Post extends Model
 
 
     public function tags() {
-        return $this->manyToMany($this,Tag::class);
+        return $this->hasManyThrough(Tag::class);
     }
 
 
     public function tag() {
-        return $this->oneToOne($this,Tag::class);
+        return $this->hasMany(Tag::class);
     }
 
 

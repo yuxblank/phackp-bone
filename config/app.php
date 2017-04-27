@@ -2,85 +2,65 @@
 return [
 
 
-    /**
-     * Application informations
-     */
-
-    "APP_NAME" => "phackp-bone",
-    "APP_VERSION" => "0.1.6-snapshot",
+    'app.globals' => [
 
 
-    /**
-     * Author informations
-     */
-    "AUTHOR" =>
-        [
-            "NAME" => "Name",
-            "EMAIL" => "email@devexample.com"
-        ],
+        /**
+         * Application informations
+         */
 
-    /**
-     * App filesystem settings
-     */
-
-    /* "APP_ROOT" => __DIR__ ,*/
+        "APP_NAME" => "phackp-bone",
+        "APP_VERSION" => "0.1.6-snapshot",
 
 
-    /**
-     * App status
-     */
+        /**
+         * Author informations
+         */
+        "AUTHOR" =>
+            [
+                "NAME" => "Name",
+                "EMAIL" => "email@devexample.com"
+            ],
 
-    "APP_MODE" => "DEBUG",
+        /**
+         * App status
+         */
 
-
-    'APP_URL' => 'http://localhost:7000',
-
-
-    /**
-     * Rest settings
-     */
-
-    'INJECT_QUERY_STRING' => true,
-
-    /**
-     * Cookies and Sessions
-     */
-
-    'SESSION' =>
-        [
-            'LIFETIME' => 1024,
-            'USE_COOKIES' => true,
-            'NAME' => 'pHackp-session',
-            'COOKIE' =>
-                [
-                    'PATH' => '/',
-                    'DOMAIN' => $_SERVER['HTTP_HOST'],
-                    'SECURE' => array_key_exists('HTTPS',$_SERVER),
-                    'HTTP_ONLY' => false
-                ]
-        ],
+        "APP_MODE" => "DEBUG",
 
 
-    /**
-     * Performance settings
-     */
+        'APP_URL' => 'http://localhost:7000',
 
-    /*    "CACHE" => false, // not implemented yet*/
-    "GZIP" => false,
+    ],
 
+    "app.http" => [
 
-    'USE_DATABASE' => true,
+        /**
+         * Rest settings
+         */
 
+        'INJECT_QUERY_STRING' => true,
+        "GZIP" => false,
+    ],
 
-    // change default project-level namepsaces
-    'NAMESPACE' =>
+    "app.session" => [
 
-        [
-            'MODEL' => 'model\\',
+        'SESSION' =>
+            [
+                'LIFETIME' => 1024,
+                'USE_COOKIES' => true,
+                'NAME' => 'pHackp-session',
+                'COOKIE' =>
+                    [
+                        'PATH' => '/',
+                        'DOMAIN' => $_SERVER['HTTP_HOST'],
+                        'SECURE' => array_key_exists('HTTPS', $_SERVER),
+                        'HTTP_ONLY' => false
+                    ]
+            ],
+    ],
 
-        ],
-
-    'VIEW' =>
+    'app.view' =>
         [
             'ROOT' => 'src/view',
             'HOOKS' =>

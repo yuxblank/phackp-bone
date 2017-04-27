@@ -5,7 +5,7 @@ return [
      * New routes using PHP arrays
      */
 
-    'ROUTES' => [
+    'routes' => [
 
         'GET' => [
             [
@@ -50,6 +50,12 @@ return [
                         'accept' => 'application/json',
                         'return' => 'application/json'
                     ]
+            ],
+            [
+                'url' => '/',
+                'method' => 'index',
+                'class' => \controller\App::class,
+                'alias' => 'home'
             ],
         ],
         'PUT' => [
