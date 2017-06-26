@@ -9,6 +9,7 @@
 namespace model;
 
 
+
 use yuxblank\phackp\database\Model;
 
 class Category extends Model

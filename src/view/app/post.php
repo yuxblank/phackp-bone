@@ -1,5 +1,5 @@
 <?php
-use yuxblank\phackp\core\Router; ?>
+?>
 <?php if ($post): ?>
 <div class="post">
     <h1><?php echo $post->title ?></h1>
@@ -7,7 +7,7 @@ use yuxblank\phackp\core\Router; ?>
 
     <div class="tags">
         <?php foreach ($post->tags() as $tag): ?>
-        <a href="<?php Router::link('tag/{id}', array($tag->id)) ?>"><?php echo $tag->tag?></a>
+        <a href="<?php $this->router->link('tag/{id}', array($tag->id)) ?>"><?php echo $tag->tag?></a>
         <?php endforeach;?>
     </div>
 </div>

@@ -105,6 +105,12 @@ return [
                     'method' => 'notFound404',
                     'class' => \controller\Error::class
                 ],
+            500 =>
+                [
+                    'url' => '505',
+                    'method' => 'onError',
+                    'class' => \controller\Error::class
+                ],
         ]
     ]
 

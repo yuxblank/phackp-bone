@@ -25,10 +25,21 @@ class Error extends Controller implements EventDrivenController
 
     }
 
-
+    /**
+     * What you want to do for non existing routes?
+     */
     public function notFound404() {
         http_response_code(404);
         echo "<p> 404 not found </p>";
+    }
+
+    /**
+     * Occur on exception if an ErrorHandlerProvider is registered
+     * @param $ex
+     */
+    public function onError($ex){
+        echo "<h3 style=\"color:darkred;\">Runtime exception detected</h3>";
+        die("<br><pre>" . var_dump($ex)."</pre>");
     }
 
 }

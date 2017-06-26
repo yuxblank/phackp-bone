@@ -10,14 +10,8 @@
       "email": "yuxblank@gmail.com"
     }
   ],
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/yuxblank/phackp.git"
-    }
-  ],
   "require": {
-    "yuxblank/phackp": "dev-topsrstd"
+    "yuxblank/phackp": "dev-master"
   },
   "autoload": {
     "psr-4": {

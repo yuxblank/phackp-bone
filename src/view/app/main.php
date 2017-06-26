@@ -1,5 +1,4 @@
 <?php
-use \yuxblank\phackp\core\Application;
 ?>
 <!DOCTYPE html>
 <html lang="en">
