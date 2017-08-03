@@ -9,11 +9,9 @@
 namespace controller;
 
 
-use yuxblank\phackp\api\EventDrivenController;
 use yuxblank\phackp\core\Controller;
-use yuxblank\phackp\core\View;
 
-class Error extends Controller implements EventDrivenController
+class Error extends Controller
 {
     public function onBefore()
     {

@@ -18,6 +18,7 @@ class Post extends Model
     public $title;
     public $content;
     public $category_id;
+    public $date_created;
 
 
 
@@ -37,6 +38,10 @@ class Post extends Model
 
     public function tag() {
         return $this->hasMany(Tag::class);
+    }
+
+    public function comments(){
+        return $this->hasMany(Comment::class);
     }
 
 

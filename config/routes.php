@@ -15,26 +15,26 @@ return [
                 'alias' => 'home'
             ],
             [
-                'url' => 'blog/title/{id}',
+                'url' => '/blog/title/{id}',
                 'method' => 'showPost',
                 'class' => \controller\App::class,
                 'alias' => 'blogpost'
 
             ],
             [
-                'url' => 'blog',
+                'url' => '/blog',
                 'method' => 'posts',
                 'class' => \controller\App::class,
             ],
 
             [
-                'url' => 'tag/{id}',
+                'url' => '/tag/{id}',
                 'method' => 'tagSearch',
                 'class' => \controller\App::class,
             ],
 
             [
-                'url' => 'api',
+                'url' => '/api',
                 'method' => 'get',
                 'class' => \controller\Rest::class,
             ],
@@ -56,6 +56,11 @@ return [
                 'method' => 'index',
                 'class' => \controller\App::class,
                 'alias' => 'home'
+            ],
+            [
+                'url' => '/comment',
+                'method' => 'addComment',
+                'class' => \controller\App::class,
             ],
         ],
         'PUT' => [

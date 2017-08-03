@@ -2,20 +2,18 @@
 
 namespace controller;
 
-use model\Customer;
+use model\Comment;
 use model\Post;
 use model\Tag;
 use model\Welcome;
-use Psr\Http\Message\ServerRequestInterface;
-use yuxblank\phackp\api\EventDrivenController;
-use yuxblank\phackp\core\Application;
 use yuxblank\phackp\core\Controller;
-use yuxblank\phackp\core\Router;
 use yuxblank\phackp\core\Session;
 use yuxblank\phackp\core\View;
-use Zend\Diactoros\Response\Serializer;
+use yuxblank\phackp\http\api\ServerRequestInterface;
+use yuxblank\phackp\routing\api\Router;
+use Zend\Diactoros\Response\JsonResponse;
 
-class App extends Controller implements EventDrivenController
+class App extends Controller
 {
     private $router;
     private $view;
@@ -95,8 +93,7 @@ class App extends Controller implements EventDrivenController
          * @var array $posts
          */
         $posts = $obj->posts();
-
-        $id = filter_var($serverRequest->getQueryParams()['id'], FILTER_SANITIZE_NUMBER_INT);
+        $id = filter_var($serverRequest->getPathParams()['id'], FILTER_SANITIZE_NUMBER_INT);
 
 
         $this->session->getValue('prova');
@@ -126,6 +123,28 @@ class App extends Controller implements EventDrivenController
         $post = new Post();
         $this->view->renderArgs('posts', $post->findAll());
         $this->view->render('app/posts');
+    }
+
+
+    /**
+     * Example of Ajax/RestFul method to add comments.
+     * @param ServerRequestInterface $serverRequest
+     * @return JsonResponse
+     */
+    public function addComment(ServerRequestInterface $serverRequest){
+        $body = $serverRequest->getParsedBody();
+        if ($body) {
+            /** @var Comment $commentObj */
+            $commentObj = Comment::make();
+            $commentObj->post_id = filter_var($body['post_id'], FILTER_SANITIZE_NUMBER_INT);
+            $commentObj->text = htmlspecialchars($body['comment_text']);
+            if ($commentObj->isValidComment()){
+                $commentObj->save();
+                return new JsonResponse($commentObj);
+            }
+            return new JsonResponse([], 503);
+        }
+        return new JsonResponse([],503);
     }
 
 }

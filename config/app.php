@@ -29,7 +29,7 @@ return [
         "APP_MODE" => "DEBUG",
 
 
-        'APP_URL' => 'http://localhost:7000',
+        'APP_URL' => 'http://localhost:7001',
 
     ],
 
@@ -65,7 +65,8 @@ return [
             'HOOKS' =>
                 [
                     'FOOTER' => 'tags/footer.php',
-                    'NAVBAR' => 'tags/navbar.php'
+                    'NAVBAR' => 'tags/navbar.php',
+                    'POST' => 'tags/post.php'
                 ]
 
         ]

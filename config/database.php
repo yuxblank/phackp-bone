@@ -13,7 +13,7 @@ return [
         "HOST"    => "localhost",
         "PORT"    => "",
         "USER"    => "root",
-        "PSW"     => "",
+        "PSW"     => "muska88",
         "NAME"    => "phackpbone",
         "OPTIONS" => [],
     ]

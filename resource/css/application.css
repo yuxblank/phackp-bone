@@ -25,3 +25,22 @@ footer{
 footer p {
     padding-top: 10px;
 }
+.post{
+    background-color: #f8f3f9;
+    border:3px solid #5c5d6b;
+    border-radius: 8px;
+    padding: 10px;
+}
+.post header {
+    color: #cc4d12;
+    border-bottom: 1px solid #5c5d6b;
+}
+.comments header {
+    background-color: #0095ad;
+    color:#f8f3f9;
+}
+.comment{
+    font-size:16px;
+    color:#5c5d6b;
+    background-color: #f8f3f9;
+}
