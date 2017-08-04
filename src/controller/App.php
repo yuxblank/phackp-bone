@@ -9,7 +9,7 @@ use model\Welcome;
 use repository\PostRepository;
 use yuxblank\phackp\core\Controller;
 use yuxblank\phackp\core\Session;
-use yuxblank\phackp\core\View;
+use yuxblank\phackp\view\View;
 use yuxblank\phackp\http\api\ServerRequestInterface;
 use yuxblank\phackp\routing\api\Router;
 use Zend\Diactoros\Response\JsonResponse;
@@ -155,6 +155,7 @@ class App extends Controller
 
     public function doctrinePost(ServerRequestInterface $serverRequest){
         $this->view->renderArgs("posts", $this->postRepository->getPosts());
+        $
         $this->view->render("app/posts");
     }
 
