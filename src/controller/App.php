@@ -155,7 +155,6 @@ class App extends Controller
 
     public function doctrinePost(ServerRequestInterface $serverRequest){
         $this->view->renderArgs("posts", $this->postRepository->getPosts());
-        $
         $this->view->render("app/posts");
     }
 
