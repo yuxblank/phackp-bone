@@ -16,6 +16,7 @@
             <ul class="nav navbar-nav">
               <li><a href="<?php echo $this->router->link('blog') ?>">Blog</a></li>
                 <li><a href="<?php echo $this->router->alias('blogpost', null, array(1)) ?>">Post</a></li>
+              <li><a href="<?php echo $this->router->alias('doctrine_post') ?>">Post (Doctrine)</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

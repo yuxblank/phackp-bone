@@ -2,7 +2,7 @@
   "name": "yuxblank/phackp-bone",
   "description": "App skeleton for phackp framework applications",
   "license": "MIT",
-  "version" : "0.2-alpha",
+  "version": "0.2-alpha",
   "minimum-stability": "dev",
   "authors": [
     {
@@ -11,12 +11,18 @@
     }
   ],
   "require": {
-    "yuxblank/phackp": "dev-master"
+    "yuxblank/phackp": "dev-master",
+    "doctrine/orm": "2.5.*"
   },
   "autoload": {
     "psr-4": {
       "controller\\": "src/controller",
-      "model\\": "src/model"
+      "model\\": "src/model",
+      "repository\\": "src/repository",
+      "doctrinemodels\\": "src/doctrine_models"
+    },
+    "psr-0": {
+      "doctrinemodels": "src/doctrine_models"
     }
   }
 }

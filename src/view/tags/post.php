@@ -2,12 +2,14 @@
 ?>
 <?php if ($_post): ?>
   <div class="post">
+    <p>category : <?php echo $_post->getCategory()->getTitle() ?></p></p>
     <header>
-      <h1><?php echo $_post->title ?></h1>
-      <h3 style="float:right"><?php echo $_post->date_created ?></h3>
+      <h1><?php echo $_post->getTitle() ?></h1>
+      <h3 style="float:right"><?php echo is_object($_post->getDateCreated()) ? $_post->getDateCreated()->format("Y-m-d H:i:s") : $_post->getDateCreated() ?></h3>
     </header>
-    <p><?php echo $_post->content ?></p>
-
+    <div class="post-content">
+      <p><?php echo $_post->getContent() ?></p>
+    </div>
     <div class="tags">
         <?php foreach ($_post->tags() as $tag): ?>
           <a href="<?php $this->router->link('tag/{id}', array($tag->id)) ?>"><?php echo $tag->tag ?></a>
@@ -26,7 +28,7 @@
     <div class="add-comment">
       <h3>Add comment</h3>
       <form method="post">
-        <input type="hidden" name="post_id" value="<?php echo $_post->id ?>"/>
+        <input type="hidden" name="post_id" value="<?php echo $_post->getId() ?>"/>
         <textarea title="comment_text" class="form-control" name="comment_text"> </textarea>
         <button class="form-control btn btn-primary " type="submit">comment</button>
       </form>

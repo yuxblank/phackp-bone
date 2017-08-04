@@ -32,6 +32,12 @@ return [
                 'method' => 'tagSearch',
                 'class' => \controller\App::class,
             ],
+            [
+                'url' => '/doctrine/post',
+                'method' => 'doctrinePost',
+                'class' => \controller\App::class,
+                'alias' => 'doctrine_post'
+            ],
 
             [
                 'url' => '/api',

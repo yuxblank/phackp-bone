@@ -6,6 +6,7 @@ use model\Comment;
 use model\Post;
 use model\Tag;
 use model\Welcome;
+use repository\PostRepository;
 use yuxblank\phackp\core\Controller;
 use yuxblank\phackp\core\Session;
 use yuxblank\phackp\core\View;
@@ -18,6 +19,8 @@ class App extends Controller
     private $router;
     private $view;
     private $session;
+    /** @var  PostRepository */
+    private $postRepository;
 
     /**
      * App constructor.
@@ -26,13 +29,15 @@ class App extends Controller
      * @param View $view
      * @param Session $session
      * @param ServerRequestInterface $serverRequest
+     * @param PostRepository $postRepository
      */
-    public function __construct(Router $router, View $view, Session $session, ServerRequestInterface $serverRequest)
+    public function __construct(Router $router, View $view, Session $session, ServerRequestInterface $serverRequest, PostRepository $postRepository)
     {
         parent::__construct();
         $this->router = $router;
         $this->view = $view;
         $this->session = $session;
+        $this->postRepository = $postRepository;
     }
 
 
@@ -145,6 +150,12 @@ class App extends Controller
             return new JsonResponse([], 503);
         }
         return new JsonResponse([],503);
+    }
+
+
+    public function doctrinePost(ServerRequestInterface $serverRequest){
+        $this->view->renderArgs("posts", $this->postRepository->getPosts());
+        $this->view->render("app/posts");
     }
 
 }
