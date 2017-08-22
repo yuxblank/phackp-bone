@@ -9,12 +9,9 @@ return [
     "database" =>
     [
         "ID"      => "default",
-        "DRIVER"  => "mysql",
-        "HOST"    => "localhost",
-        "PORT"    => "",
+        "DSN"     => "mysql:host=localhost;dbname=phackpbone",
         "USER"    => "root",
-        "PSW"     => "muska88",
-        "NAME"    => "phackpbone",
+        "PSW"     => "",
         "OPTIONS" => [],
     ]
 
